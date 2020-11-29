@@ -1,4 +1,4 @@
-import logo from '../logo.svg';
+import logo from '../Images/logo.svg';
 import { Router, Route, Link } from 'react-router-dom';
 import '../CSS/App.css';
 
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello</h1>
+        <h1>React + Electron</h1>
       </header>
     </div>
   );

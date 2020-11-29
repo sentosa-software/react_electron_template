@@ -2,11 +2,17 @@
   "name": "react_electron_template",
   "version": "0.1.0",
   "private": true,
+  "description": "React and ElectronJS Template",
+  "author": "Sentosa Software <tech.sentosa@gmail.com>",
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "concurrently": "^5.3.0",
+    "electron-builder-squirrel-windows": "^22.9.1",
+    "electron-is-dev": "^1.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -15,13 +21,42 @@
     "wait-on": "^5.2.0",
     "web-vitals": "^0.2.4"
   },
-  "main": "electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "concurrently \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron": "concurrently \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.sentosa.reactelectron",
+    "productName": "Electron React App",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build_assets/icon.ico"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +77,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^11.0.3"
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1"
   }
 }

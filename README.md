@@ -1,8 +1,9 @@
-# Simple Electron + React Template
-A simple react & electron template with minimal bloat
+# Getting Started with Create React App
 
-### `npm run electron`
-Runs the desktop app in its own window
+`npm start` to run the React app alone
 
-### `npm run dist`
-Builds the React App and packages it for distrubution on desktop.
+`npm run dev` to run the electron app on localhost
+
+`npm run make` to build the electron app for distribution
+
+`npx electron-icon-maker --input=/absolute/path/to/myapp/public/electron-logo.png --output=build_assets` to generate icons for desktop
